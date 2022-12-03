@@ -1,0 +1,1900 @@
+CSS - Cascading Style Sheet
+
+To add styles to HTML.  
+Styling --> Adding Colors, Fonts, Size, Borders, etc. 
+
+CSS is not a programming language. It's not a markup language either.
+
+CSS is a Style Sheet Language. CSS is a rule-based language.   
+
+How To Define Style for HTML Elements:
+1. In line
+<h1 style="color:red"> வணக்கம் <h1> 
+
+2. By Using Style Tag: 
+<html>
+<head>
+<style type="text/css">
+h1{
+    color: blue;
+  }
+</style>
+</head>
+<h1> வணக்கம் தமிழகம் </h1> 
+இது பரிந்துரைக்கப்படுவதில்லை.  ஏனென்றால் ஒவ்வொரு html கோப்புக்கும் இதைத் திரும்பச் செய்ய வேண்டி வரும்.  
+
+3. தனி CSS கோப்பு(File): 
+
+style1.css
+----------
+h1{color:red;}
+
+index.html:
+-----------
+<html>
+<head>
+<link rel="stylesheet" href="styles/style1.css">
+</head>
+<h1> வணக்கம் தமிழகம் </h1> 
+
+Basic Structure of CSS File:
+============================
+tagname{
+    property:value;
+   }
+eg: 
+h1{color:red;}
+
+CSS Fileஐ HTML கோப்புடன் link tag மூலம் இணைக்கலாம்.  
+
+CSSஇல் comments: 
+/* Comments */
+
+h1 {
+    color: red;
+    font-size: 5em;
+}
+
+p {
+    color: black;
+}
+
+Multiple Property Values: 
+style1.css
+----------
+p {
+  color: red;
+  width: 500px;
+  border: 1px solid black;
+}
+
+Selecting Multiple Elements: 
+
+style1.css
+-----------
+p,h1 {
+  color: red;
+  width: 500px;
+  border: 1px solid black;
+}
+index.html:
+----------
+<html>
+<head>
+<link rel="stylesheet" href="styles/style1.css">
+</head>
+<body>
+<h1> வணக்கம் தமிழகம் </h1> 
+<p> வணக்கம் தமிழகம் </p> 
+</body>
+</html>
+
+CSS Selectors: 
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+p {
+  text-align: center;
+  color: red;
+} 
+</style>
+</head>
+<body>
+
+<p>எல்லாப் பத்திக்கும்(paragraph) </p>
+<p id="para1">இந்த style</p>
+<p>பொருந்தும்</p>
+
+</body>
+</html>
+
+1. ID Selector: 
+index.html: 
+-----------
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#para1 {
+  text-align: center;
+  color: blue;
+}
+</style>
+</head>
+<body>
+<p id="para1">நான் மாறியிருக்கிறேனா?</p>
+<p>நான் மாறவில்லையா?</p>
+​</body>
+</html>
+குறிப்பு: id எண்ணில் தொடங்கக் கூடாது.  
+
+2. Class Selector:
+------------------
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.abcd {
+  text-align: center;
+  color: red;
+}
+</style>
+</head>
+<body>
+
+<h1 class="abcd">காற்றுக்கென்ன வேலி</h1>
+<p class="bcde">கடலுக்கென்ன மூடி</p> 
+</body>
+</html>
+
+குறிப்பு: styleஇல் class பெயருக்கு முன்னால் புள்ளி(.) வைக்க வேண்டும்.  
+
+2.1 More than One Class: 
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+p.center {
+  text-align: center;
+  color: red;
+}
+
+p.large {
+  font-size: 300%;
+}
+</style>
+</head>
+<body>
+<h1 class="center">நான் மாறவே இல்லையே</h1>
+<p class="center">நான் நடுவில் வந்திருக்கிறேன்</p>
+<p class="center large">எல்லாம் மாறியிருக்கிறதா?</p> 
+</body>
+</html>
+
+3. Universal Selector: 
+-------------------------
+Universal Selector: * 
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  text-align: center;
+  color: red;
+}
+</style>
+</head>
+<body>
+<h1>வணக்கம்</h1>
+<p>சிவப்பு</p>
+<p id="para1">சிவப்புத் தான்</p>
+<p>இங்கேயும் சிவப்புத் தான்</p>
+</body>
+</html>
+
+4. CSS Attribute Selector: 
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+a[target] {
+  background-color: yellow;
+}
+</style>
+</head>
+<body>
+<h2>CSS [attribute] Selector</h2>
+<p>பின்னணி மஞ்சளாக எங்கெல்லாம் மாறுகிறது, பாருங்கள். </p>
+<a href="https://www.kaniyam.com">Kaniyam</a>
+<a href="http://www.ilugc.in" target="_blank">ILUGC</a>
+<a href="http://www.wikipedia.org" target="_blank">Wikipedia</a>
+</body>
+</html>
+
+4.1. CSS Attribute Selector
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+[title~=linux] {
+  border: 5px solid red;
+}
+</style>
+</head>
+<body>
+
+<h2>[attribute~="value"] ஸ்டைல் டேக்கைப் பாருங்கள்</h2>
+<p>attribute (இங்கே title)ஐப் பொருத்து ஸ்டைல் மாறுகிறதா</p>
+
+<img src="rabbit.jpeg" title="animal" width="150" height="113">
+<img src="linux.jpeg" title="linux" width="224" height="162"> 
+<img src="linux.jpeg" title="logo of linux" width="150" height="113">
+
+</body>
+</html>
+
+
+4.2. CSS Attribute Selector
+| கொடுத்திருக்கும் classஐ அப்படியே தேடும், இல்லை, - உடன் தேடும்.  
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+[class|=top] {
+  background: yellow;
+}
+</style>
+</head>
+<body>
+
+<h2>CSS [attribute|="value"] Selector</h2>
+
+<h1 class="top-header">கனவா கனவா</h1>
+<p class="top-text">நான் காண்பது கனவா</p>
+<p class="topcontent">என் கண் முன்னே கடவுள் துகளா</p>
+
+</body>
+</html>
+
+
+4.2. CSS Attribute Selector
+| கொடுத்திருக்கும் classஐ அப்படியே தேடும், இல்லை, - உடன் தேடும்.  
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+[class|=top] {
+  background: yellow;
+}
+</style>
+</head>
+<body>
+
+<h2>CSS [attribute|="value"] Selector</h2>
+
+<h1 class="top-header">கனவா கனவா</h1>
+<p class="top-text">நான் காண்பது கனவா</p>
+<p class="topcontent">என் கண் முன்னே கடவுள் துகளா</p>
+
+</body>
+</html>
+
+
+4.3. CSS [attribute^="value"] Selector
+-----------
+class^ ---> starts with specified value
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+[class^="abc"] {
+  background: pink;
+}
+</style>
+</head>
+<body>
+
+<h1>CSS [attribute^="abcd"] Selector</h1>
+
+<p class="abcd">ரெண்டு ஒன்னு பாக்கலாம் நிக்குறியா தெம்பா </p>
+<h1 class="bcde-123">எப்பவும் லைஃப் திரும்பலாம் </h1>
+<p class="abcdefgh">நம்புறியா நண்பா</p>
+
+</body>
+</html>
+
+4.4. CSS [attribute$="value"] Selector
+--------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+[class$="xyz"] {
+  background: pink;
+}
+</style>
+</head>
+<body>
+
+<h2>CSS [attribute$="value"] Selector</h2>
+
+<div class="abc_xyz">ரிஸ்க் எடுக்கறதெல்லாம் ரஸ்க் சாப்பிடறது மாதிரி</div>
+<div class="abc">வேணா வலிக்குது அழுதுறுவேன்.</div>
+<div class="stuvwxyz">நான் அப்டியே ஷாக் ஆயிட்டேன்</div>
+<p class="abc-xyz">எந்த ஒரு விசயத்தையும் பிளான் பண்ணாம பண்ணா இப்படித்தான்!  பிளான் பண்ணி பண்ணனும்</p>
+
+</body>
+</html>
+
+4.5. CSS [attribute*="value"] Selector
+---------------------------------
+
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+[class*="xy"] {
+  background: pink;
+}
+</style>
+</head>
+<body>
+
+<h2>CSS [attribute*="value"] Selector</h2>
+
+<div class="abc_xyz_1">ரிஸ்க் எடுக்கறதெல்லாம் ரஸ்க் சாப்பிடறது மாதிரி</div>
+<div class="xyabz">வேணா வலிக்குது அழுதுறுவேன்.</div>
+<div class="stuvwxyz_">நான் அப்டியே ஷாக் ஆயிட்டேன்</div>
+<p class="aby-xz">எந்த ஒரு விசயத்தையும் பிளான் பண்ணாம பண்ணா இப்படித்தான்!  பிளான் பண்ணி பண்ணனும்</p>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+[class*="xy"] {
+  background: pink;
+}
+</style>
+</head>
+<body>
+
+<h2>CSS [attribute$="value"] Selector</h2>
+
+<div class="abc_xyz_1">ரிஸ்க் எடுக்கறதெல்லாம் ரஸ்க் சாப்பிடறது மாதிரி</div>
+<div class="xyabz">வேணா வலிக்குது அழுதுறுவேன்.</div>
+<div class="stuvwxyz_">நான் அப்டியே ஷாக் ஆயிட்டேன்</div>
+<p class="aby-xz">எந்த ஒரு விசயத்தையும் பிளான் பண்ணாம பண்ணா இப்படித்தான்!  பிளான் பண்ணி பண்ணனும்</p>
+
+</body>
+</html>
+
+CSS Combinators: 
+----------------
+5.1 Descendant Selector
+-----------------------
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div p {
+  background-color: yellow;
+}
+</style>
+</head>
+<body>
+
+<h2>Descendant Selector</h2>
+<div>
+  <p>நான் p, div இரண்டிற்குள்ளும் இருக்கிறேன்.  எனவே எனக்கு style பொருந்தும்.  </p>
+  <p>நானும் p, div இரண்டிற்குள்ளும் இருக்கிறேன்.  எனவே எனக்கு style பொருந்தும். </p>
+  <section><p>நானும் தான் p, div இரண்டிற்குள்ளும் இருக்கிறேன்.  எனவே எனக்கு style பொருந்தும்.</p></section>
+</div>
+
+<p>நான் pஇல் மட்டும் தான்  இருக்கிறேன்.  எனவே எனக்கு style பொருந்தாது. </p>
+<p>நான் pஇல் மட்டும் தான்  இருக்கிறேன்.  எனவே எனக்கு style பொருந்தாது.</p>
+
+</body>
+</html>
+
+5.2. Child Selector (>) 
+----------------------
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div > p {
+  background-color: yellow;
+}
+</style>
+</head>
+<body>
+
+<h2>Descendant Selector</h2>
+<div>
+  <p>நான் p, div இரண்டிற்குள்ளும் இருக்கிறேன்.  எனவே எனக்கு style பொருந்தும்.  </p>
+  <p>நானும் p, div இரண்டிற்குள்ளும் இருக்கிறேன்.  எனவே எனக்கு style பொருந்தும். </p>
+  <section><p>நானும் தான் p, div இரண்டிற்குள்ளும் இருக்கிறேன். ஆனால், sectionகுள் இருக்கிறேன்.   style பொருந்தாது.</p></section>
+</div>
+
+<p>நான் pஇல் மட்டும் தான்  இருக்கிறேன்.  எனவே எனக்கு style பொருந்தாது. </p>
+<p>நான் pஇல் மட்டும் தான்  இருக்கிறேன்.  எனவே எனக்கு style பொருந்தாது.</p>
+
+</body>
+</html>
+
+5.3. nth of type selectors:
+--------------------------
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+/* Selects the second element of div siblings */
+div:nth-of-type(2) {
+  background: red;
+  color: yellow;
+}
+
+/* Selects the second li element in a list */
+li:nth-of-type(2) {
+  background: lightgreen;
+  color: red;
+}
+
+/* Selects every third element among any group of siblings */
+:nth-of-type(3) {
+  background: yellow;
+}
+</style>
+</head>
+<body>
+
+<div>
+<p>நம்பிக்கையே நல்லது</p>
+</div>
+
+<div>
+<p>எறும்புக்கும் வாழ்க்கை உள்ளது</p>
+</div>
+
+<div>
+<p>பெருந்தலைகள்</p>
+</div>
+
+<ul>
+  <li>ரிச்சர்டு ஸ்டால்மேன்</li>
+  <li>முத்து அண்ணாமலை</li>
+  <li>லினஸ் டார்வால்ட்ஸ்</li>
+  <li>டென்னிஸ் ரிட்சி</li>
+  <li>ஜிம்மி வேல்ஸ்</li>
+</ul>
+
+</body>
+</html>
+
+--------------------------------
+
+
+
+Text: 
+color   --> "#ff0000", "rgb(0,255,0)", "red"
+text-align  --> Left, Right, center, Justify
+text-decoration --> linkஇல் அடிக்கோட்டை எடுக்க
+text-transform  --> uppercase, lowercase, Capitalize
+text-indent     --> இடைவெளி அமைக்க உதவும். 
+index.html
+----------
+<html> 
+<head> 
+<link rel="stylesheet" href="styles/style1.css"> 
+</head> 
+<body> 
+<p class="first"> Dont Giveup! Keep on Trying! </p>
+<p class="second">Even through it seems to be impossible, It will happen in your life one day. </p>
+<p class="third"> All the very best Friends! Wait to receive the surprises in your life!!!!!!</p>
+</body> 
+</html> 
+
+style1.css
+-----------
+p.first 
+{color:green; text-decoration:overline; text-transform:uppercase; text-indent:50px;}
+p.second 
+{color:#0000ff; text-align:right; text-decoration:line-through; text-transform:lowercase;}
+p.third
+{color:rgb(255,0,0); text-align:center; text-decoration:underline; text-decoration:capitalize;}
+
+-------------
+Font: 
+font-family - எழுத்துகளின் வகை, பல எழுத்து வகையைக் குறிப்பிடலாம்.  முதல் மதிப்பு இல்லையெனில் இரண்டாவது வகையிலும், இரண்டாவதும் இல்லையெனில் 3-வது வகையிலும் எழுத்துக்களை வெளிப்படுத்தும்.
+font-style :    Normal, Italic, Bold, Oblique
+
+font-size: px, em
+
+index.html: 
+----------
+<html> 
+<head> 
+<link rel="stylesheet" href="styles/style1.css"> 
+</head> 
+<body> 
+<p class="first"> விடாமுயற்சி தொடர்பயிற்சி </p>
+<p class="second"> எங்கே விழுந்தாய் என்று பார்க்காதே!  எங்கே வழுக்கியது என்று பார்!  </p>
+<p class="third"> தொடக்கத்தில் எல்லாமே கடினம் தான்!  தொடர்ந்து செய்தால் எதுவும் எளிமை தான்!</p>
+</body> 
+</html> 
+
+
+style1.css
+-----------
+
+p.first {font-family:"Tiems New Roman", Times, serif; font-style:Oblique; font-size:10;}
+p.second {font-style:italic; font-size:20;}
+p.third {font-style:bold; font-size:30;}
+
+--------------
+Link: 
+ஒரு linkஐ அழகுபடுத்த color, font-family, font size கொடுக்கலாம்.  
+
+a:link =
+a:hover = 
+a:active = சொடுக்கும் போது எப்படித் தெரிய வேண்டும்.  
+a:visited = சொடுக்கிய பிறகு எப்படித் தெரிய வேண்டும்.  
+
+index.html
+------------
+<html>
+<head> 
+<link rel="stylesheet" href="styles/style1.css"> 
+</head> 
+<body> 
+<a href="https://freetamilebooks.com/ebooks/eliya_tamilil_software_testing/" target="_blank"> Click here for Software Testing book </a>
+</body> 
+</html> 
+
+style1.css
+-----------
+a:hover {color:red;background-color:yellow;}
+a:active {color:white;background-color:black;}
+
+
+-----------
+List: 
+Ordered List என்றால் 1,2,3
+Unordered List என்றால் புள்ளிகள் 
+
+CSS மூலம் அவற்றை மாற்றலாம்.  
+index.html
+----------
+<html>
+<head> 
+<link rel="stylesheet" href="styles/style1.css"> 
+</head> 
+<body> 
+Types of Testing
+<ol>
+<li>Functional Testing</li>
+<li>Non-functional Testing</li>
+</ol>
+
+Types of non-functional testing
+<ul>
+<li>Performance Testing</li>
+<li>Automation Testing</li>
+</ul>
+
+</body> 
+</html> 
+
+style.css
+---------
+ol li {list-style-type:upper-roman;}
+ol li {list-style-type:circle;}
+
+
+Visibility  Property: 
+தெரிய வேண்டுமா இல்லையா? எனச் சொல்லும்.  
+Display: 
+inline என இருந்தால், அடுத்தடுத்த வரியில் இல்லாமல் தொடர்ச்சியாக வெளிப்படும்.  
+style.css:
+----------
+ol li {visibility: hidden;}
+ol li {display: inline;}
+
+TABLES: 
+-------
+<html>
+<head> 
+<link rel="stylesheet" href="styles/style1.css"> 
+</head> 
+<body> <table>
+
+<tr>
+<th>Name</th>
+<th>Marks</th>
+<th>Rank</th>
+</tr>
+
+<tr>
+<th>கதிர்</th>
+<th>450</th>
+<th>தேர்ச்சி</th>
+</tr>
+
+<tr>
+<th>வெண்பா</th>
+<th>445</th>
+<th>தேர்ச்சி</th>
+</tr>
+
+</table></body> 
+</html> 
+
+style1.css
+----------
+
+table {width:"60%"; height: "40%"; border: 3px solid red;}
+th {border: 2px solid green;}
+td {border: 1px solid orange;}
+
+இதே CSS கோப்பில்: 
+table {width:60%; width:40%; border: 3px solid red; border-collapse: collapse;} 
+
+
+Divisions: 
+
+<html>
+<head> 
+<html>
+<head> 
+<link rel="stylesheet" href="styles/style1.css"> 
+</head> 
+<body> <div>பத்தாவது முறை விழுந்தவனை முத்தமிட்டுச் சொன்னது பூமி - ஒன்பது முறை எழுந்தவன் அல்லவா நீ!  - ஈரோடு தமிழன்பன் </div>
+</body> 
+</html> 
+
+style1.css
+----------
+div {width:60%; height: 40%; border: 3px solid red; }
+
+இதே style.css கோப்பில் margin சேர்த்து வேறுபாட்டைக் கவனிக்கவும். 
+
+div {width:60%; height: 40%; border: 3px solid red; margin:25px; } 
+
+padding: உள்ளே இருக்கும் contentக்கும் இடைவெளி கொடுக்கும்.  
+style1.css
+
+div {width:60%; height: 40%; border: 3px solid red; margin:25px;padding: 25px; }
+
+Body background: 
+index.html: 
+<html>
+<head> 
+<html>
+<head> 
+<link rel="stylesheet" href="styles/style1.css"> 
+</head> 
+<body> <div>பத்தாவது முறை விழுந்தவனை முத்தமிட்டுச் சொன்னது பூமி - ஒன்பது முறை எழுந்தவன் அல்லவா நீ!  - ஈரோடு தமிழன்பன் </div>
+</body> 
+</html> 
+
+style1.css:
+body {background-color: skyblue;}
+
+படத்தைச் சேர்ப்பது எப்படி?
+body {background-image: url("../linux.jpeg");}
+
+body {
+background-image: url("../linux.jpeg");
+background-repeat: repeat-x;
+}
+
+body {
+background-image: url("../linux.jpeg");
+background-repeat: no-repeat;
+}
+
+body {
+background-image: url("../linux.jpeg");
+background-repeat: no-repeat;
+background-position: right top;
+}
+
+POSITIONING: 
+index.html: 
+----------
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="styles/style1.css"> 
+</style>
+</head>
+<body>
+
+<h2>position: static;</h2>
+<body> <div class="static">பத்தாவது முறை விழுந்தவனை முத்தமிட்டுச் சொன்னது பூமி - ஒன்பது முறை எழுந்தவன் அல்லவா நீ!  - ஈரோடு தமிழன்பன் </div>
+</body> 
+</html> 
+
+style1.css:
+div.static {
+  position: static;
+  border: 3px solid #73AD21;
+}
+
+style1.css:
+ div.fixed {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  border: 3px solid #73AD21;
+}
+
+div.absolute {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  width: 200px;
+  height: 100px;
+  border: 3px solid #73AD21;
+}
+
+sticky
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+span {
+  color: red;
+  border: 1px solid black;
+}
+
+.extra span {
+  color: inherit;
+}
+</style>
+</head>
+<body>
+
+<div>
+  Here is <span>a span element</span> which is red, as it is span element
+</div>
+
+<div class="extra" style="color:blue">
+  Here is <span>a span element</span> which is blue, because it inherits from its parent.
+</div>
+
+<div style="color:red">
+  Here is <span>a span element</span> which is red, as it is span element
+</div>
+
+</body>
+</html>
+
+----------
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+  color: red;
+  border: 1px solid blue; 
+}
+
+h1 {
+  color: initial; 
+}
+</style>
+</head>
+<body>
+
+<div>
+  <h1 align="center">தலைப்பு</h1>
+  <p>தலைப்பின் நிறம் என்ன?  இந்தப் பத்தியின் நிறம் என்ன?  ஏன் இரண்டும் வெவ்வேறு?  initial property தான் காரணம்.  புரிகிறதா?.</p>
+</div>
+</body>
+</html>
+
+------------
+revert property: 
+.பெற்றோர் {
+  color: blue;
+}
+p {
+  color: red;
+}
+.மாற்று {
+  color: revert;
+}
+
+<html>
+<head>
+<link rel="stylesheet" href="styles/style1.css">
+</head>
+<body>
+<div class="பெற்றோர்">
+  <p>கண்ணைக் கசக்கும் சூரியனோ ரெட்.</p>
+  <p class="மாற்று">ஊதா ஊதா ஊதாப்பூ</p>
+</div>
+</body>
+</html>
+
+---------------
+
+CSS - Source Order: 
+
+
+
+
+index.html:
+-----------
+<html>
+<head> 
+<link rel="stylesheet" href="styles/style1.css"> 
+</head>
+<body>
+<div class="one"> <a target="_blank" href="rabbit.jpeg"><img src="rabbit.jpeg"></a> <div class="two">1</div></div>
+
+<div class="one"> <a target="_blank" href="rabbit.jpeg"><img src="rabbit.jpeg"></a> <div class="two">2</div></div>
+
+<div class="one"> <a target="_blank" href="rabbit.jpeg"><img src="rabbit.jpeg"></a> <div class="two">3</div></div>
+
+<div class="one"> <a target="_blank" href="rabbit.jpeg"><img src="rabbit.jpeg"></a> <div class="two">4</div></div>
+
+</body>
+
+</html>
+
+style1.css:
+
+div.one {margin:5px; padding:5px; border:1px; solid red; float:left; text-align:center;} 
+div.one img { display:inline; margin: 5px; border:1px solid yellow; width:170px; height:150px;}
+div.one a:hover img{border:1px solid blue;}
+div.two {text-align:center; font-weight:normal; width:120px; margin:5px;}
+
+
+Opacity: 
+<html>
+<head> 
+<link rel="stylesheet" href="styles/style1.css"> 
+</head>
+<body>
+<div class="one"> <a target="_blank" href="rabbit.jpeg"><img src="rabbit.jpeg"></a> <div class="two">1</div></div>
+<div class="one"> <a target="_blank" href="rabbit.jpeg"><img src="rabbit.jpeg"></a> <div class="two">2</div></div>
+<div class="one"> <a target="_blank" href="rabbit.jpeg"><img src="rabbit.jpeg"></a> <div class="two">3</div></div>
+<div class="one"> <a target="_blank" href="rabbit.jpeg"><img src="rabbit.jpeg"></a> <div class="two">4</div></div>
+</body>
+</html>
+
+style1.css
+-------------
+
+div.one {margin:5px; padding:5px; border:1px; solid red; float:left; text-align:center;} 
+
+div.one img { display:inline; margin: 5px; border:1px solid yellow; width:170px; height:150px; opacity: 0.4; filter:alpha(opacity=40);}
+
+div.one a:hover img{border:1px solid blue;opacity: 1; filter:alpha(opacity=100);}
+
+div.two {text-align:center; font-weight:normal; width:120px; margin:5px;}
+
+
+CSS Layout: 
+Flex Box: flexbox is designed for one-dimensional layout
+
+<html>
+<head> 
+<link rel="stylesheet" href="styles/style1.css"> 
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="box1">ஒன்று </div>
+  <div class="box2">இரண்டு</div>
+  <div class="box3">மூன்று</div>
+</div>
+
+</body>
+</html>
+
+style1.css
+------------
+
+.wrapper {
+  display: flex;
+}
+
+style1.css
+-----------
+.wrapper {
+    display: flex;
+}
+
+.wrapper > div {
+    flex: 1;
+}
+
+மேல் உள்ளதில் flex: 0 என மாற்றிப் பாருங்கள்.  
+
+Grid Layout - For Two Dimensional Layout
+
+<html>
+<head> 
+<link rel="stylesheet" href="styles/style1.css"> 
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="box1">ஒன்று </div>
+    <div class="box2">இரண்டு</div>
+    <div class="box3">மூன்று</div>
+    <div class="box4">நான்கு</div>
+    <div class="box5">ஐந்து</div>
+    <div class="box6">ஆறு</div>
+</div>
+
+</body>
+</html>
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 100px;
+    gap: 10px;
+}
+
+நாம் விரும்பிய படி layout அமைக்க: 
+<html>
+<head> 
+<link rel="stylesheet" href="styles/style1.css"> 
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="box1">ஒன்று </div>
+    <div class="box2">இரண்டு</div>
+    <div class="box3">மூன்று</div>
+    <div class="box4">நான்கு</div>
+    <div class="box5">ஐந்து</div>
+    <div class="box6">ஆறு</div>
+</div>
+
+</body>
+</html>
+
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 100px;
+    gap: 10px;
+}
+
+.box1 {
+    grid-column: 2 / 4;
+    grid-row: 1;
+}
+
+.box2 {
+    grid-column: 1;
+    grid-row: 1 / 3;
+}
+
+.box3 {
+    grid-row: 2;
+    grid-column: 3;
+}
+
+
+Floats:
+
+<html>
+<head> 
+<link rel="stylesheet" href="styles/style1.css"> 
+</head>
+<body>
+
+<h1>Simple float example</h1>
+
+<div class="box">Float</div>
+
+<p> கிரிக்கெட்டில், மட்டையை சும்மாவே வைத்திருந்தால், சச்சினாக இருந்தாலும் நமக்கு கோபம் வருகிறதே. தொடர்ந்து ரன் எடுக்கவும், அடிக்கடி 4, 6 என அடிக்க வேண்டும் என்று எதிர்பார்க்கிறோம். நீங்கள் மட்டும் கணிணியை வைத்துக் கொண்டு, மென்பொருள் எதுவும் உருவாக்காமல், பாட்டு கேட்டு, படம் பார்த்து, விளையாடிக் கொண்டு, சமூக வலைத்தளங்களில் அரட்டை அடிப்பீர்கள். என்ன நியாயம் இது?</p>
+
+
+</body>
+</html>
+
+.box {
+    float: left; /* right, none, inherit கொடுக்கலாம் */
+    width: 150px;
+    height: 150px;
+    margin-right: 30px;
+    border: dotted;
+    background-color: lightgreen;
+}
+
+
+Positioning: 
+
+Static Positioning: 
+Default Behaviour:
+
+<html>
+<head> 
+<link rel="stylesheet" href="styles/style1.css"> 
+</head>
+<body>
+
+<h1>Simple float example</h1>
+
+<div class="box">Float</div>
+
+<p class="positioned"> 
+கிரிக்கெட்டில், மட்டையை சும்மாவே வைத்திருந்தால், சச்சினாக இருந்தாலும் நமக்கு கோபம் வருகிறதே. தொடர்ந்து ரன் எடுக்கவும், அடிக்கடி 4, 6 என அடிக்க வேண்டும் என்று எதிர்பார்க்கிறோம். நீங்கள் மட்டும் கணிணியை வைத்துக் கொண்டு, மென்பொருள் எதுவும் உருவாக்காமல், பாட்டு கேட்டு, படம் பார்த்து, விளையாடிக் கொண்டு, சமூக வலைத்தளங்களில் அரட்டை அடிப்பீர்கள். என்ன நியாயம் இது?</p>
+
+</body>
+</html>
+
+style1.css: 
+-------------
+.positioned {
+  position: static;
+  background: skyblue;
+}
+
+Relative Positioning: 
+
+<html>
+<head> 
+<link rel="stylesheet" href="styles/style1.css"> 
+</head>
+<body>
+
+<h1>Simple float example</h1>
+
+<div class="box">Float</div>
+
+<p class="positioned"> 
+கிரிக்கெட்டில், மட்டையை சும்மாவே வைத்திருந்தால், சச்சினாக இருந்தாலும் நமக்கு கோபம் வருகிறதே. தொடர்ந்து ரன் எடுக்கவும், அடிக்கடி 4, 6 என அடிக்க வேண்டும் என்று எதிர்பார்க்கிறோம். நீங்கள் மட்டும் கணிணியை வைத்துக் கொண்டு, மென்பொருள் எதுவும் உருவாக்காமல், பாட்டு கேட்டு, படம் பார்த்து, விளையாடிக் கொண்டு, சமூக வலைத்தளங்களில் அரட்டை அடிப்பீர்கள். என்ன நியாயம் இது?</p>
+
+
+</body>
+</html>
+
+style1.css: 
+-----------
+.positioned {
+  position: relative;
+  background: skyblue;
+top: 30px;
+left: 30px;
+/*bottom: 30 px; 
+right: 30 px;  */
+}
+
+Absolute Positioning: 
+
+style1.css: 
+-----------
+.positioned {
+  position: absolute;
+  background: skyblue;
+top: 30px;
+left: 30px;
+/*bottom: 30 px; 
+right: 30 px;  */
+}
+
+z-index: 
+<html>
+<head> 
+<link rel="stylesheet" href="styles/style1.css"> 
+</head>
+<body>
+
+<h1>Simple float example</h1>
+
+<div class="box">Float</div>
+
+<p class="positioned"> 
+ பெரும்பாலான மாணவர்கள் சொல்வது என்ன? “எனக்கு ஒரு வேலை கொடுங்கள். பிறகு நான் தேவையானதைக் கற்றுக் கொள்கிறேன். அதற்குப் பிறகு, திறமையை வளர்த்துக் கொள்கிறேன்”. உண்மைதானே.</p>
+
+<p> நீங்கள் உங்கள் குடும்பத்துடன் அடிக்கடி வெளியூர் செல்ல கார் வாங்குகிறீர்கள். நல்ல கார் ஓட்டுனர் தேட்கிறீர்கள். நான் உங்களிடம் நேர்முகத் தேர்விற்கு வந்துள்ளேன். கார் டிரைவிங் வகுப்பு சென்றுள்ளேன். ஆனால் கார் ஓட்டிய அனுபவம் இல்லை.</p>
+
+<p>“நான் பயிற்சி முடித்துள்ளேன். சான்றிதழ் வைத்துள்ளேன். ஆனால் அனுபவம் இல்லை. என்னை வேலைக்கு சேர்த்துக் கொள்ளுங்கள். உங்கள் புது காரை என்னிடம் கொடுங்கள். முடிந்தால் சில மாதம் பயிற்சியும் கொடுங்கள். நன்கு கற்றுக் கொண்டு, பழகிய பின், பிறகு உங்கள் குடும்பத்தினரை எங்கு வேண்டுமானாலும் அழைத்துச் செல்கிறேன்.”</p>
+
+</body>
+</html>
+
+p:nth-of-type(1) {
+  position: absolute;
+  background: lime;
+  top: 10px;
+  right: 30px;
+z-index: -1; /* 1 கொடுத்தும் பாருங்கள் */
+}
+
+
+<html>
+<head> 
+<link rel="stylesheet" href="styles/style1.css"> 
+</head>
+<body>
+
+<h1>Simple float example</h1>
+
+<div class="box">Float</div>
+<h1> கணினி மாணவர்கள் வேலை தேடுவது எப்படி?  </h1>
+
+<p> Tech குழுக்களில் சேர்க. ஊரில் உள்ள Tech குழுக்களில் சேர்க. குழு இல்லையென்றால் தொடங்குக. அடிக்கடி சந்தித்து புது விஷயஙுகளை கற்றுக் கொள்க.</p>
+
+<p> உலகமே GNU/Linux ஐ விரும்பி வரவேற்கிறது. உங்களிடம் உள்ள விண்டோஸை அழித்துவிட்டு, உபுண்டு, டெபியன், ஃபெடோரா என ஏதாவது ஒரு லினக்ஸை நிறுவுங்கள். Commandline பயன்படுத்தும் போது எக்கச்சக்க புது விஷயங்கள் கற்றுக் கொள்வீர்கள்.</p>
+
+<p>குனு/லினக்ஸில் எல்லா மென்பொருட்களுக்கும் source code கிடைக்கும். அவற்றை பதிவிறக்கம் செய்து சும்மாவேனும் திறந்து படித்துப் பாருங்கள்.</p>
+
+<p>நீங்கள் செய்யும் எல்லாவற்றையும் உங்கள் வலைப்பதிவில் எழுதுங்கள். தினமும் விடாமல் எழுதுங்கள். உங்களின் மிகச்சிறந்த Visiting Card ஆக உங்கள் வலைப்பதிவு அமையும். </p>
+
+</body>
+</html>
+
+
+style1.css
+-----------
+
+body {
+  width: 500px;
+  height: 1400px;
+  margin: 0 auto;
+}
+
+h1 {
+  position: fixed;
+  top: 0;
+  width: 500px;
+  margin-top: 0;
+  background: white;
+  padding: 10px;
+}
+
+
+/* கீழ் உள்ளத்தைக் கொடுக்காமல் முதலில் பாருங்கள். */ 
+p:nth-of-type(1) {
+  margin-top: 200px;
+}
+
+
+Sticky Positioning: 
+
+<html>
+<head> 
+<link rel="stylesheet" href="styles/style1.css"> 
+</head>
+<body>
+
+<h1>Simple float example</h1>
+
+<div class="box">Float</div>
+<h1> கணினி மாணவர்கள் வேலை தேடுவது எப்படி?  </h1>
+<h1>Sticky positioning</h1>
+
+<dl>
+    <dt>Highest Educational Qualification</dt>
+    <dd>B.E., Civil Engineering</dd>
+    <dd>Anna University</dd>
+    <dd>2022</dd>
+    <dd>6.4 CGPA</dd>
+    <dt>Technical Skills</dt>
+    <dd>Java</dd>
+    <dd>Python</dd>
+    <dd>Linux</dd>
+    <dd>HTML, CSS</dd>
+    <dd>JavaScript</dd>
+    <dt>Hobbies</dt>
+    <dd>Attending Tech Meetings</dd>
+    <dd>Writing Blogs</dd>
+    <dd>Designing</dd>
+    <dd>Reading Books</dd>
+    <dt>Extra Curricular</dt>
+    <dd>Foot Ball Player</dd>
+    <dd>ILUGC Volunteer</dd>
+    <dt>About Me</dt>
+    <dd>Fun Loving</dd>
+    <dd>Cool</dd>
+    <dd>Focused</dd>
+</dl>
+
+
+</body>
+</html>
+
+
+dt {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  margin: 1em 0;
+}
+
+
+
+
+style1.css:
+-----------
+.positioned {
+  position: sticky;
+  top: 30px;
+  left: 30px;
+}
+
+
+------------------------------
+
+CSS  TRANSITIONS:
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="styles/style1.css"> 
+</head>
+<body>
+<h1>Transition Property</h1>
+<p>சுட்டெலியைப் பச்சைப் பெட்டி மீது நகர்த்துங்கள் [hover]</p>
+	<div><h1> Sasikala</h1> </div>
+</body>
+</html>
+
+style1.css: 
+------------
+div {
+  width: 10px;
+  height: 100px;
+  background: green;
+  transition: width 2s;
+  /* transition-delay: 1s; */ முயன்று பாருங்கள்.  
+}
+
+div:hover {
+  width: 200px;
+}
+
+மேல் உள்ளதை 
+div:hover {
+  width: 200px;
+  height: 200px;
+}
+என்று மாற்றிப் பாருங்கள்.  
+
+style1.css
+----------
+div {
+  width: 100px;
+  height: 100px;
+  background: red;
+  transition: width 2s, height 2s, transform 2s;
+}
+
+div:hover {
+  width: 300px;
+  height: 300px;
+  transform: rotate(360deg);
+}
+
+CSS Buttons: 
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="styles/style1.css"> 
+</head>
+<body>
+<h2>CSS Buttons</h2>
+
+<button>Default Button</button>
+<a href="https://payilagam.com" class="button">Visit Payilagam</a>
+<button class="button">Button</button>
+<input type="button" class="button" value="Input Button">
+
+</body>
+</html>
+
+style1.css: 
+.button {
+  background-color: brown;
+  border: none;
+  border-radius: 100%;/* 4px 8px 16px 32px வட்டமாக வேண்டுமெனில் 25% 50% 100% */
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+/* hover பண்பைச் சேருங்கள் */
+.button:hover {
+  background-color: blue;
+  color: white;
+}
+
+
+
+CSS Media Queries: 
+
+
+Multiple Column Layout: 
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="styles/style1.css"> 
+</head>
+<body>
+<h1>Create Multiple Columns</h1>
+<div class="newspaper">
+உங்களுக்கு பிடித்தமான கட்டற்ற மென்பொருளுக்கு பங்களியுங்கள். ஒரு வரி நிரல் தந்தாலும் அது பெரிய விஷயமே. நிரல் மட்டுமின்றி ஆவணமாக்கம், படம், IRC, Forum, Mailing list ஆகியவற்றில் உதவி, Packaging, பரப்புரை செய்தல், மொழிமாற்றம் செய்தல் என ஏதாவது ஒரு வகையில் பங்களியுங்கள். “How to contribute to Open Source Software?” என்று தேடுங்கள். பிடித்த மொழியில், பிடித்த மென்பொருளுக்கு உதவுங்கள்.
+</div>
+</body>
+</html>
+
+style1.css
+-----------
+.newspaper {
+  column-count: 3;
+}
+
+கீழ் உள்ளது போல, style1.cssஐ மாற்றிப் பாருங்கள். 
+
+.newspaper {
+  column-count: 3;
+column-width: 300px;
+}
+
+style1.css கோப்பில் column-gap: 40px; சேர்த்துப் பாருங்கள்.  
+
+style1.css கோப்பில் column-rule-style: solid;சேர்த்துப் பாருங்கள். 
+
+style1.css கோப்பில் column-rule-color: lightblue; சேர்த்துப் பாருங்கள். 
+
+style1.css கோப்பில் column-rule: 4px dotted rgb(79, 185, 227); சேர்த்துப் பாருங்கள். 
+
+
+Multiple Column Layout: 
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="styles/style1.css"> 
+</head>
+<body>
+<h1>கணினி மாணவர்கள் வேலை தேடுவது எப்படி?</h1>
+<div class="newspaper">
+உங்களுக்கு பிடித்தமான கட்டற்ற மென்பொருளுக்கு பங்களியுங்கள். ஒரு வரி நிரல் தந்தாலும் அது பெரிய விஷயமே. நிரல் மட்டுமின்றி ஆவணமாக்கம், படம், IRC, Forum, Mailing list ஆகியவற்றில் உதவி, Packaging, பரப்புரை செய்தல், மொழிமாற்றம் செய்தல் என ஏதாவது ஒரு வகையில் பங்களியுங்கள். “How to contribute to Open Source Software?” என்று தேடுங்கள். பிடித்த மொழியில், பிடித்த மென்பொருளுக்கு உதவுங்கள்.
+</div>
+</body>
+</html>
+
+style1.css
+----------
+.newspaper {
+  column-count: 3;
+column-width: 200px;
+column-rule-style: dotted;
+column-rule-color: red;
+}
+
+h1 {
+  column-span: all;
+}
+
+Columns and Fragmentation: 
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="styles/style1.css"> 
+</head>
+<body>
+<h1>கணினி மாணவர்கள் வேலை தேடுவது எப்படி?</h1>
+<div class="container">
+<div class="content">
+உங்களுக்கு பிடித்தமான கட்டற்ற மென்பொருளுக்கு பங்களியுங்கள். ஒரு வரி நிரல் தந்தாலும் அது பெரிய விஷயமே. நிரல் மட்டுமின்றி ஆவணமாக்கம், படம், IRC, Forum, Mailing list ஆகியவற்றில் உதவி, Packaging, பரப்புரை செய்தல், மொழிமாற்றம் செய்தல் என ஏதாவது ஒரு வகையில் பங்களியுங்கள். “How to contribute to Open Source Software?” என்று தேடுங்கள். பிடித்த மொழியில், பிடித்த மென்பொருளுக்கு உதவுங்கள்.
+</div>
+<div class="content">
+எனதருமை சச்சின்களே. 50களையும் 100களையும் சச்சின் குவித்தது போல, மென்பொருட்களை உருவாக்கி, கட்டற்ற மென்பொருட்களுக்கு பங்களித்து, உங்கள் திறமையால், சுடர்விடும் சூரியனாய் மிளிருங்கள்.
+</div>
+</div>
+</body>
+</html>
+
+style1.css
+----------
+.container {
+  column-width: 250px;
+  column-gap: 20px;
+}
+
+.content {
+  background-color: rgb(207, 232, 220);
+  border: 2px solid rgb(79, 185, 227);
+  padding: 10px;
+  margin: 0 0 1em 0;
+}
+
+
+RESPONSIVE DESIGN: 
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="styles/style1.css"> 
+</head>
+<body>
+
+<h1>Demo of the ::after selector</h1>
+
+<p>வணக்கம் இது முதல் வரி</p>
+<p>வரிக்குப் பின்னால் நான் இருக்கிறேன்</p>
+
+</body>
+</html>
+
+style1.css: 
+---------
+p::after { 
+  content: " - ஒவ்வொரு வரிக்குப் பின்னேயும்";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="styles/style1.css"> 
+</head>
+<body>
+
+<div class="header">
+  <h1>சாவித்திரிபாய் புலே</h1>
+</div>
+
+<div class="row">
+  <div class="col-3 col-s-3 menu">
+    <ul>
+      <li>இளமைக்காலம்</li>
+      <li>கல்விப்பணி</li>
+      <li>பிற பணிகள்</li>
+      <li>சிறப்பு</li>
+    </ul>
+  </div>
+
+  <div class="col-6 col-s-9">
+    <h1> சாவித்திரிபாய் </h1>
+    <h2>சாவித்திரிபாய் புலே (Savitribai Jyotirao Phule, 3 சனவரி 1831 – 10 மார்ச் 1897) ஒரு சமூக சீர்திருத்தவாதியும், கவிஞரும் ஆவார். இவர் இந்தியாவின் முதல் பெண் ஆசிரியர் என அழைக்கப்படுகிறார். </h2>
+  </div>
+
+  <div class="col-3 col-s-12">
+    <div class="aside">
+      <h2>பிறப்பு
+      <p>சனவரி 3, 1831</p>
+		  <h2>பெண்களுக்கான முதல் பள்ளி</h2> 
+      <h3>பூனாவிற்கருகிலுள்ள பிடெ வாடாவில் 1848 ஆம் ஆண்டு </h3>
+		  <h2>இறப்பு</h2> 
+      <p>மார்ச்சு 10, 1897</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Resize the browser window to see how the content respond to the resizing.</p>
+</div>
+
+</body>
+</html>
+
+style1.css
+------------
+* { /* Universal Selector: */ 
+  box-sizing: border-box;
+}
+/* ஒரு elementஇற்கு அதன் width, heightஇல் padding, border சேர்க்க  box-sizing property உதவுகிறது.*/ 
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+html {
+  font-family: "Lucida Sans", sans-serif;
+}
+
+.header {
+  background-color: #9933cc;
+  color: #ffffff;
+  padding: 15px;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  padding: 8px;
+  margin-bottom: 7px;
+  background-color: #33b5e5;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.menu li:hover {
+  background-color: #0099cc;
+}
+
+.aside {
+  background-color: #33b5e5;
+  padding: 15px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.footer {
+  background-color: #0099cc;
+  color: #ffffff;
+  text-align: center;
+  font-size: 12px;
+  padding: 15px;
+}
+
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+
+--------------------
+
+Hoverable Drop Down: 
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="styles/style1.css"> 
+</head>
+<body>
+
+<h2>Hoverable Dropdown</h2>
+<p>சுட்டெலியைக் கீழ் உள்ள வார்த்தை மீது நகர்த்துங்கள்.</p>
+
+<div class="dropdown">
+  <span>என் மீது</span>
+  <div class="dropdown-content">
+  <p>நான் தான் Hoverable Content</p>
+  </div>
+</div>
+
+</body>
+</html>
+
+style1.css:
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  }
+  
+Text Shadowing:
+.dropdown-content பகுதிக்குள் 
+
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+  
+சேர்த்துப் பாருங்கள்.
+
+text-shadow: 2px 2px 5px red; சேர்த்துப் பாருங்கள்.  
+
+text-shadow: 2px 2px red; சேர்த்துப் பாருங்கள்.  
+  
+  
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+h1 {
+  text-shadow: 2px 2px;
+}
+</style>
+</head>
+<body>
+<h1>Text-shadow effect!</h1>
+</body>
+</html>
+
+CSS Layout: 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Website Layout</title>
+<link rel="stylesheet" href="styles/style2.css"> 
+</head>
+<body>
+<div class="header">
+  <h1>My Name</h1>
+</div>
+</body>
+</html>
+
+
+style2.css
+----------
+/* Style the header */
+body {
+  margin: 0;
+}
+
+
+.header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+​
+
+​
+
+​
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
